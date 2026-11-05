@@ -4,4 +4,8 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        Particula.cpp \
         main.cpp
+
+HEADERS += \
+    Particula.h
