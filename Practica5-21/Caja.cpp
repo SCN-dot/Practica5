@@ -12,7 +12,6 @@ void Rectangulo::agregarParticula(Particula *p){
     if (p == nullptr){
         return;
     }
-
     particulas.push_back(p);
 }
 
@@ -72,12 +71,7 @@ void Rectangulo::simular(double dt){
 void Rectangulo::mostrarEstado() const{
     for (const Particula *p : particulas){
         if (p != nullptr && p->estaActiva()){
-            std::cout << "Particula " << p->getId()
-            << " | X: " << p->getX()
-            << " | Y: " << p->getY()
-            << " | Vx: " << p->getVx()
-            << " | Vy: " << p->getVy()
-            << '\n';
+            cout << "Particula " << p->getId()<< " | X: " << p->getX() << " | Y: " << p->getY()<< " | Vx: " << p->getVx() << " | Vy: " << p->getVy() << endl;
         }
     }
 }
