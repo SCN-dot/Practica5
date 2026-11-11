@@ -1,11 +1,10 @@
 #include "Particula.h"
 #include <cmath>
-#include <QPen>
-#include <QBrush>
+
 
 
 Particula::Particula(int id, double x, double y, double vx, double vy, double masa, double radio)
-    : id(id), x(x), y(y), vx(vx), vy(vy), masa(masa), radio(radio), activa(true), circulo(nullptr) {
+    : id(id), x(x), y(y), vx(vx), vy(vy), masa(masa), radio(radio), activa(true){
 }
 
 int Particula::getId() const { return id; }
@@ -20,7 +19,6 @@ bool Particula::estaActiva() const { return activa; }
 void Particula::setPosicion(double nx, double ny) {
     x = nx;
     y = ny;
-    actualizarPosicion();
 }
 
 void Particula::setVelocidad(double nvx, double nvy) {
@@ -31,7 +29,7 @@ void Particula::setVelocidad(double nvx, double nvy) {
 void Particula::mover(double dt) {
     x += vx * dt;
     y += vy * dt;
-    actualizarPosicion();
+
 }
 
 bool Particula::colisionaCon(const Particula &otra) const {
@@ -65,21 +63,4 @@ void Particula::fusionar(Particula &otra) {
     radio = nradio;
 
     otra.activa = false;
-}
-void Particula::actualizarPosicion(){
-    if(circulo!=nullptr){
-        circulo ->setRect(0,0,radio*2,radio*2);
-        circulo ->setPos(x-radio,y-radio);
-    }
-}
-
-void Particula::dibujar(QGraphicsScene * escena){
-    if(escena== nullptr){
-        return;
-    }
-    circulo = new QGraphicsEllipseItem(0 , 0 ,radio*2 , radio*2);
-    circulo ->setBrush(QBrush(Qt::black));
-    circulo ->setPen(QPen(Qt::red));
-    escena -> addItem(circulo);
-    actualizarPosicion();
 }

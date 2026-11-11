@@ -1,11 +1,9 @@
-QT += core gui widgets
-
 TEMPLATE = app
 TARGET = Practica5-21
 
-CONFIG += c++17
-CONFIG -= console
+CONFIG += console c++17
 CONFIG -= app_bundle
+CONFIG -= qt
 
 SOURCES += \
     Caja.cpp \
@@ -17,5 +15,3 @@ HEADERS += \
     Caja.h \
     Obstaculo.h \
     Particula.h
-
-FORMS +=

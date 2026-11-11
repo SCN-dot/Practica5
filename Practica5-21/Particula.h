@@ -1,7 +1,5 @@
 #ifndef PARTICULA_H
 #define PARTICULA_H
-#include <QGraphicsEllipseItem>
-#include <QGraphicsScene>
 
 class Particula
 {
@@ -12,12 +10,10 @@ private:
     double masa;
     double radio;
     bool activa;     // false si fue absorbida por otra al fusionarse
-    QGraphicsEllipseItem *circulo;
 
 public:
     Particula(int id, double x, double y, double vx, double vy, double masa, double radio);
-    void dibujar(QGraphicsScene* escena);
-    void actualizarPosicion();
+
 
     // Getters
     int getId() const;

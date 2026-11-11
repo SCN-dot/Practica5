@@ -1,21 +1,35 @@
-#include <QApplication>
+#include <iostream>
 #include "Caja.h"
-#include "Particula.h"
 
+using namespace std;
 
-int main(int argc, char *argv[])
+int main()
 {
-    QApplication app(argc, argv);
-    Rectangulo Rectangulo(500,500);
-    Particula *p1 = new Particula(1,100,100,20,40,5,10);
-    Rectangulo.agregarObstaculo(100,100,100,100);
-    Particula *p2 = new Particula(2,200,150,-25,6,3,15);
-    Particula *p3 = new Particula(3,300,250,34,-40,8,12);
-    Rectangulo.agregarObstaculo(300,150,30,120);
-    Rectangulo.agregarObstaculo(150,350,150,25);
-    Rectangulo.agregarParticula(p1);
-    Rectangulo.agregarParticula(p2);
-    Rectangulo.agregarParticula(p3);
-    Rectangulo.mostrar();
-    return app.exec();
+    cout << "INICIANDO SIMULACION" << endl;
+
+    Rectangulo caja(100, 100);
+
+    Particula *p1 = new Particula(
+        1,
+        50, 50,
+        10, 5,
+        2, 5
+        );
+
+    caja.agregarParticula(p1);
+
+    cout << "PARTICULA CREADA" << endl;
+
+    for (int i = 0; i < 10; i++)
+    {
+        caja.simular(1.0);
+
+        cout << "Iteracion: " << i + 1 << endl;
+
+        caja.mostrarEstado();
+    }
+
+    cout << "SIMULACION FINALIZADA" << endl;
+
+    return 0;
 }
