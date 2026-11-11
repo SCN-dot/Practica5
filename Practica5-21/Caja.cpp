@@ -27,3 +27,8 @@ Rectangulo::~Rectangulo(){
     delete vista;
     delete Escena;
 }
+void Rectangulo::agregarObstaculo(double x, double y, double ancho, double alto){
+    obstaculo *nuevo= new obstaculo(x,y,ancho,alto);
+    nuevo ->dibujar(Escena);
+    obstaculos.push_back(nuevo);
+}
