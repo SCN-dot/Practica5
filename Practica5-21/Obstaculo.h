@@ -17,6 +17,7 @@ public:
     double obtenerY() const;
     double obtenerAlto() const;
     double obtenerAncho() const;
+    ~obstaculo();
 
 
 };
