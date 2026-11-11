@@ -1,11 +1,19 @@
+QT += core gui widgets
+
 TEMPLATE = app
-CONFIG += console c++17
+TARGET = Practica5-21
+
+CONFIG += c++17
+CONFIG -= console
 CONFIG -= app_bundle
-CONFIG -= qt
 
 SOURCES += \
-        Particula.cpp \
-        main.cpp
+    Caja.cpp \
+    Particula.cpp \
+    main.cpp
 
 HEADERS += \
+    Caja.h \
     Particula.h
+
+FORMS +=

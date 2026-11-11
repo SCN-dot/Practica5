@@ -1,9 +1,11 @@
-#include <iostream>
+#include <QApplication>
+#include "Caja.h"
 
-using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
-    cout << "Hello World!" << endl;
-    return 0;
+    QApplication app(argc, argv);
+    Rectangulo Rectangulo(500,500);
+    Rectangulo.mostrar();
+    return app.exec();
 }
