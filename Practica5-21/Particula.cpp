@@ -1,8 +1,11 @@
 #include "Particula.h"
 #include <cmath>
 
+
+
 Particula::Particula(int id, double x, double y, double vx, double vy, double masa, double radio)
-    : id(id), x(x), y(y), vx(vx), vy(vy), masa(masa), radio(radio), activa(true) { }
+    : id(id), x(x), y(y), vx(vx), vy(vy), masa(masa), radio(radio), activa(true){
+}
 
 int Particula::getId() const { return id; }
 double Particula::getX() const { return x; }
@@ -23,13 +26,10 @@ void Particula::setVelocidad(double nvx, double nvy) {
     vy = nvy;
 }
 
-void Particula::desactivar(){
-    activa = false;
-}
-
 void Particula::mover(double dt) {
     x += vx * dt;
     y += vy * dt;
+
 }
 
 bool Particula::colisionaCon(const Particula &otra) const {
@@ -63,26 +63,4 @@ void Particula::fusionar(Particula &otra) {
     radio = nradio;
 
     otra.activa = false;
-}
-
-Particula Particula::fusionarCon(const Particula &otra, int nuevoId) const{
-
-    double m1 = masa;
-    double m2 = otra.masa;
-    double M = m1 + m2;
-
-    // Conservacion del momento lineal
-    double nvx = (m1 * vx + m2 * otra.vx) / M;
-    double nvy = (m1 * vy + m2 * otra.vy) / M;
-
-    // Centro de masa
-    double nx = (m1 * x + m2 * otra.x) / M;
-    double ny = (m1 * y + m2 * otra.y) / M;
-
-    // Conservacion del area
-    double nradio =sqrt( radio * radio + otra.radio * otra.radio);
-
-    double nuevaMasa = M;
-
-    return Particula(nuevoId,nx,ny,nvx,nvy,nuevaMasa,nradio);
 }
