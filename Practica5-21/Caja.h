@@ -5,6 +5,7 @@
 #include <fstream>
 #include "Obstaculo.h"
 #include "Particula.h"
+using namespace std;
 
 enum ErrorCaja {
     CAJA_OK,
@@ -22,10 +23,9 @@ private:
     double epsilon;
     double tiempo;
     int siguienteId;
-    std::ofstream *salida;
-    std::vector<Obstaculo*> obstaculos;
-    std::vector<Particula*> particulas;
-
+    ofstream *salida;
+    vector<Obstaculo*> obstaculos;
+    vector<Particula*> particulas;
     void actualizar(double dt);
     bool comprobarParedes(Particula *p);
     void procesarParedes(Particula *p);

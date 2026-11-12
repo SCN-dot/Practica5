@@ -2,9 +2,8 @@
 #define SIMULACION_H
 
 #include <fstream>
-#include "Particula.h"
 #include "Caja.h"
-#include "Obstaculo.h"
+
 
 enum Error {
     SIN_ERROR,
@@ -32,7 +31,6 @@ private:
 
 public:
     Simulacion(double ancho, double alto, double dt, double epsilon);
-
     void agregarObstaculo(double x, double y, double ancho, double alto);
     Error agregarParticula(double x, double y, double vx, double vy, double masa, double radio);
     Error ejecutar(double duracion, const char *nombreArchivo);
