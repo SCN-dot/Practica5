@@ -1,7 +1,11 @@
 #ifndef OBSTACULO_H
 #define OBSTACULO_H
 
-class obstaculo
+#include "Particula.h"
+
+enum Lado { NINGUNO, IZQUIERDA, DERECHA, ABAJO, ARRIBA };
+
+class Obstaculo
 {
 private:
     double x;
@@ -10,12 +14,14 @@ private:
     double alto;
 
 public:
-    obstaculo(double x, double y, double ancho, double alto);
+    Obstaculo(double x, double y, double ancho, double alto);
     double obtenerX() const;
     double obtenerY() const;
     double obtenerAncho() const;
     double obtenerAlto() const;
-    ~obstaculo();
+    Lado ladoDeChoque(const Particula &p) const;
+    void sacarParticula(Particula &p, Lado lado) const;
+    ~Obstaculo();
 };
 
-#endif // OBSTACULO_H
+#endif

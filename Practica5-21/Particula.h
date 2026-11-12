@@ -14,7 +14,6 @@ private:
 public:
     Particula(int id, double x, double y, double vx, double vy, double masa, double radio);
 
-
     // Getters
     int getId() const;
     double getX() const;
