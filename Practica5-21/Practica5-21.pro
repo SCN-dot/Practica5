@@ -7,9 +7,14 @@ SOURCES += \
         Caja.cpp \
         Obstaculo.cpp \
         Particula.cpp \
+        Simulacion.cpp \
         main.cpp
 
 HEADERS += \
     Caja.h \
     Obstaculo.h \
-    Particula.h
+    Particula.h \
+    Simulacion.h
+
+DISTFILES += \
+    graficar.py

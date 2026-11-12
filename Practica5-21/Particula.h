@@ -30,8 +30,10 @@ public:
     void mover(double dt);
 
     bool colisionaCon(const Particula &otra) const;
+    void desactivar();
 
     void fusionar(Particula &otra);
+    Particula fusionarCon(const Particula &otra, int nuevoId) const;
 };
 
 #endif // PARTICULA_H
